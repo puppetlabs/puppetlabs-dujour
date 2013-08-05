@@ -1,0 +1,11 @@
+name 'puppetlabs-dujour'
+version '0.0.1'
+source 'git://github.com/puppetlabs/puppetlabs-dujour.git'
+author 'Puppet Labs'
+description 'Dujour resource types'
+summary 'Dujour resource types'
+license 'ASL 2.0'
+project_page 'https://github.com/puppetlabs/puppetlabs-dujour'
+
+dependency 'puppetlabs/postgresql', '2.x'
+dependency 'puppetlabs/stdlib', '>= 2.2.0'
