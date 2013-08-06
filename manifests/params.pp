@@ -18,7 +18,7 @@ class dujour::params {
   $database_username    = 'dujour'
   $database_password    = 'dujour'
   $dujour_package       = 'dujour'
-  $dujour_version       = 'present'
+  $version              = 'present'
   $dujour_service       = 'dujour'
   $database_file        = '/usr/share/dujour/db/db' #file:   ...   ;hsqldb.tx=mvcc;sql.syntax_pgs=true'
 }
