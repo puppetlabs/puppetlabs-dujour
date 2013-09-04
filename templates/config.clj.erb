@@ -2,15 +2,15 @@
  :port <%= @database_port %>
  :host "<%=@database_host %>"
  :database {
- <% case @database %>
- <% when 'hsqldb', 'hsql' %>
+ <% case @database
+    when 'hsqldb', 'hsql' %>
      :classname "org.hsql.jdbcDriver"
      :subprotocol "hsqldb"
-     :subname "file:<%= database_file %>;hsqldb.tx=mvcc;sql.syntax_pgs=true"
+     :subname "file:<%= @database_file %>;hsqldb.tx=mvcc;sql.syntax_pgs=true"
  <% when 'postgres', 'postgresql', 'psql' %>
      :classname "org.postgresql.jdbcDriver"
      :subprotocol "postgresql"
-     :subname "//<%= database_host %>:<%= database_port %>/<%= database_name %>"
+     :subname "//<%= @database_host %>:<%= @database_port %>/<%= @database_name %>"
  <% end %>
  <% if @database_username %>
      :user "<%= @database_username %>"
@@ -19,5 +19,4 @@
    <% end %>
  <% end %>
  }
- :latest-version {}
 }
