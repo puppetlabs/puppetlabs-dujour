@@ -1,4 +1,6 @@
 class dujour (
+  $host              = $dujour::params::host,
+  $port              = $dujour::params::port,
   $database          = $dujour::params::database,
   $database_host     = $dujour::params::database_host,
   $database_port     = $dujour::params::database_port,
