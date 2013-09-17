@@ -31,10 +31,10 @@ class dujour::database::postgresql(
 ) inherits dujour::params {
 
   # create the dujour database
-  postgresql::db{ $database_name:
+  postgresql::db { $database_name:
     user     => $database_username,
     password => $database_password,
     grant    => 'all',
-    require  => Class['::postgresql::server'],
+    require  => Class['postgresql::server'],
   }
 }
