@@ -14,8 +14,8 @@ class dujour (
     ensure => $version,
   }
 
-  file {'/etc/dujour/config.clj':
-    content => template('dujour/config.clj.erb'),
+  file {'/etc/dujour/config.edn':
+    content => template('dujour/config.edn.erb'),
     owner   => 'dujour',
     group   => 'dujour',
     mode    => 640,
