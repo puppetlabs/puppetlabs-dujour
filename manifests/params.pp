@@ -22,5 +22,5 @@ class dujour::params {
   $dujour_package    = 'dujour'
   $version           = 'present'
   $dujour_service    = 'dujour'
-  $database_file     = '/usr/share/dujour/db/db' #file:   ...   ;hsqldb.tx = mvcc;sql.syntax_pgs = true'
+  $database_file     = '/var/lib/dujour/db/db' #file:   ...   ;hsqldb.tx = mvcc;sql.syntax_pgs = true'
 }
