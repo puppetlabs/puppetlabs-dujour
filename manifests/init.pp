@@ -18,7 +18,7 @@ class dujour (
     content => template('dujour/config.edn.erb'),
     owner   => 'dujour',
     group   => 'dujour',
-    mode    => 640,
+    mode    => '0640',
     notify  => Service['dujour'], # dujour will restart whenever you edit this file.
     require => Package['dujour'],
   }
@@ -28,4 +28,5 @@ class dujour (
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
-    }}
+  }
+}
