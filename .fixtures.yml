@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    hocon:
+      repo: "git@github.com:puppetlabs/puppetlabs-hocon.git"
+      ref: 0.9.4
