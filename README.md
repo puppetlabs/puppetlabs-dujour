@@ -21,6 +21,19 @@ The Dujour module provides a quick way to get started using Dujour, a version-ch
 
 For more information about Dujour [please see the official Dujour documentation.](https://github.com/puppetlabs/dujour)
 
+Tests
+------
+
+To run the dujour puppet module tests, simply type the following below:
+
+```
+$ bundle install
+....
+....
+$ bundle exec rake spec
+```
+
+That will clone in a fixtures module that is required to run the spec tests for puppetlabs-dujour. If you'd like to see what other commands are available, type `bundle exec rake -T`.
 
 Setup
 -----

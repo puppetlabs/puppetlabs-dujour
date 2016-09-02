@@ -14,12 +14,77 @@ class dujour (
     ensure => $version,
   }
 
-  file {'/etc/dujour/config.edn':
-    content => template('dujour/config.edn.erb'),
-    owner   => 'dujour',
-    group   => 'dujour',
-    mode    => '0640',
-    notify  => Service['dujour'], # dujour will restart whenever you edit this file.
+  $config_dir = '/etc/puppetlabs/dujour'
+
+  hocon_setting { 'global.logging-config':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'logging-config',
+    value   => "${config_dir}/logback.xml",
+    require => Package['dujour'],
+  }
+
+  hocon_setting { 'webserver.host':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'host',
+    value   => $host,
+    require => Package['dujour'],
+  }
+
+  hocon_setting { 'webserver.port':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'port',
+    value   => $port,
+    require => Package['dujour'],
+  }
+
+  hocon_setting { 'web-router-service':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'dujour.core/dujour-service',
+    value   => "",
+    require => Package['dujour'],
+  }
+
+  hocon_setting { 'database.classname':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'classname',
+    value   => 'org.postgresql.Driver',
+    require => Package['dujour'],
+  }
+
+  hocon_setting { 'database.subprotocol':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'subprotocol',
+    value   => 'postgresql',
+    require => Package['dujour'],
+  }
+
+  hocon_setting { 'database.username':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'username',
+    value   => $database_username,
+    require => Package['dujour'],
+  }
+
+  hocon_setting { 'database.password':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'password',
+    value   => $database_password,
+    require => Package['dujour'],
+  }
+
+  hocon_setting { 'database.subname':
+    ensure  => present,
+    path    => "${config_dir}/conf.d/dujour.conf",
+    setting => 'subname',
+    value   => "//${database_host}:${database_port}/${database_name}",
     require => Package['dujour'],
   }
 
@@ -28,4 +93,5 @@ class dujour (
     enable     => true,
     hasstatus  => true,
     hasrestart => true,
-    }}
+  }
+}

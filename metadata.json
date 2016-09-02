@@ -1,0 +1,15 @@
+{
+  "name": "puppetlabs-dujour",
+  "version": "0.1.0",
+  "author": "Puppet Labs",
+  "summary": "Dujour resource types",
+  "source": "git@github.com:puppetlabs/puppetlabs-dujour",
+  "description": "Dujour resource types",
+  "license": "ASL 2.0",
+  "project_page": "https://github.com/puppetlabs/puppetlabs-dujour",
+  "dependencies": [
+    {"name": "puppetlabs/postgresql","version_requirement":"2.x"},
+    {"name": "puppetlabs/stdlib","version_requirement":">=2.2.0"},
+    {"name": "puppetlabs/hocon","version_requirement":"0.9.x"}
+  ]
+}
