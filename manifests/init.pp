@@ -40,13 +40,13 @@ class dujour (
     require => Package['dujour'],
   }
 
-  hocon_setting { 'web-router-service':
-    ensure  => present,
-    path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'web-router-service.dujour.core/dujour-service',
-    value   => "",
-    require => Package['dujour'],
-  }
+  #hocon_setting { 'web-router-service':
+  #  ensure  => present,
+  #  path    => "${config_dir}/conf.d/dujour.conf",
+  #  setting => 'web-router-service.dujour.core/dujour-service',
+  #  value   => "",
+  #  require => Package['dujour'],
+  #}
 
   hocon_setting { 'database.classname':
     ensure  => present,
