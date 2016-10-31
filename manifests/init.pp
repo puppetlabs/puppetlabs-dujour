@@ -19,7 +19,7 @@ class dujour (
   hocon_setting { 'global.logging-config':
     ensure  => present,
     path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'logging-config',
+    setting => 'global.logging-config',
     value   => "${config_dir}/logback.xml",
     require => Package['dujour'],
   }
@@ -27,7 +27,7 @@ class dujour (
   hocon_setting { 'webserver.host':
     ensure  => present,
     path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'host',
+    setting => 'webserver.host',
     value   => $host,
     require => Package['dujour'],
   }
@@ -35,23 +35,23 @@ class dujour (
   hocon_setting { 'webserver.port':
     ensure  => present,
     path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'port',
+    setting => 'webserver.port',
     value   => $port,
     require => Package['dujour'],
   }
 
-  hocon_setting { 'web-router-service':
-    ensure  => present,
-    path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'dujour.core/dujour-service',
-    value   => "",
-    require => Package['dujour'],
-  }
+  #hocon_setting { 'web-router-service':
+  #  ensure  => present,
+  #  path    => "${config_dir}/conf.d/dujour.conf",
+  #  setting => 'web-router-service.dujour.core/dujour-service',
+  #  value   => "",
+  #  require => Package['dujour'],
+  #}
 
   hocon_setting { 'database.classname':
     ensure  => present,
     path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'classname',
+    setting => 'database.classname',
     value   => 'org.postgresql.Driver',
     require => Package['dujour'],
   }
@@ -59,7 +59,7 @@ class dujour (
   hocon_setting { 'database.subprotocol':
     ensure  => present,
     path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'subprotocol',
+    setting => 'database.subprotocol',
     value   => 'postgresql',
     require => Package['dujour'],
   }
@@ -67,7 +67,7 @@ class dujour (
   hocon_setting { 'database.username':
     ensure  => present,
     path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'username',
+    setting => 'database.username',
     value   => $database_username,
     require => Package['dujour'],
   }
@@ -75,7 +75,7 @@ class dujour (
   hocon_setting { 'database.password':
     ensure  => present,
     path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'password',
+    setting => 'database.password',
     value   => $database_password,
     require => Package['dujour'],
   }
@@ -83,7 +83,7 @@ class dujour (
   hocon_setting { 'database.subname':
     ensure  => present,
     path    => "${config_dir}/conf.d/dujour.conf",
-    setting => 'subname',
+    setting => 'database.subname',
     value   => "//${database_host}:${database_port}/${database_name}",
     require => Package['dujour'],
   }
